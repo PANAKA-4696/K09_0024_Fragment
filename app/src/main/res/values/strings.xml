@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">7章課題：K023C0024</string>
+    <string name="name">名前：</string>
+    <string name="money">所持金：</string>
+    <string name="bt_main_shop1">GEO</string>
+    <string name="bt_main_shop2">ビックカメラ</string>
+    <string name="bt_bunk">銀行</string>
+    <string name="shop1_name">GEOショップ</string>
+    <string name="msg_ok">ご購入ありがとうございます。\n%1$s\n%d</string>
+    <string name="msg_ng">所持金が足りません</string>
+    <string name="bt_sub_shop1">最初に戻る</string>
+    <string name="shop2_name">ビックカメラショップ</string>
+    <string name="bt_shop2">戻る</string>
+    <string name="bt_sub_shop2">リストに戻る</string>
+    <string name="bunk_name">銀行</string>
+    <string name="bunk_push">引き出し</string>
+    <string name="bt_confirm">確認</string>
+    <string name="bunk_msg">%d円引き出しました</string>
+    <string name="bt_sub_bunk">戻る</string>
+    <string name="menu_list_option_electrics">電化製品</string>
+    <string name="menu_list_option_game">ゲーム</string>
+    <string name="menu_list_option_cd">CD</string>
+    <string name="tv_menu_unit">円</string>
+    <string name="menu_list_context_header">メニュー項目</string>
+    <string name="menu_list_context_desc">説明を表示</string>
+    <string name="menu_list_context_buy">購入</string>
+</resources>
