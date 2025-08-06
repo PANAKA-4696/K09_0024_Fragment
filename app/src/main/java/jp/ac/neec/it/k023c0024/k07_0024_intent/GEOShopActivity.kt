@@ -2,6 +2,7 @@ package jp.ac.neec.it.k023c0024.k07_0024_intent
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.EditText
@@ -56,6 +57,9 @@ class GEOShopActivity : AppCompatActivity() {
 
         lvGEO.adapter = adapter
         lvGEO.onItemClickListener = GEOListItemClickListener()
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
     }
 
     private inner class GEOListItemClickListener : AdapterView.OnItemClickListener {
@@ -74,5 +78,18 @@ class GEOShopActivity : AppCompatActivity() {
 
             startActivity(intentGEOShopConfirmActivity)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        //戻り値用の変数を初期値trueで用意
+        var returnVal = true
+        //選択されたメニューが「戻る」の場合、アクティビティを終了
+        if (item.itemId == android.R.id.home) {
+            finish()
+        } else {
+            //親クラスの同名メソッドを呼び出し、その戻り値をreturnValとする
+            returnVal = super.onOptionsItemSelected(item)
+        }
+        return returnVal
     }
 }
