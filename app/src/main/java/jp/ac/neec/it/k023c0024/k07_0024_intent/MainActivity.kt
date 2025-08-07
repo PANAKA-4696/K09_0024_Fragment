@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             val money = money_pre.toIntOrNull()
 
             //インテントオブジェクトを生成
-            val GEOshop = Intent(this@MainActivity, GEOShopActivity::class.java)
+            val GEOshop = Intent(this@MainActivity, GEOShopHostActivity::class.java)
             //第二画面に送るデータを格納。(Bundle)
             GEOshop.putExtra("name", name)
             GEOshop.putExtra("money", money)
