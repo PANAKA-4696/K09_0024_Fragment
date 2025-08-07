@@ -30,6 +30,7 @@
         <activity
             android:name=".GEOShopActivity"
             android:exported="false" />
+        <activity android:name=".GEOShopHostActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
