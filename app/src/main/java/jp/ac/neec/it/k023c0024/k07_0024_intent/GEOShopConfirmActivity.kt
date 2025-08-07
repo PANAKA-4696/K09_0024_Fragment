@@ -43,14 +43,7 @@ class GEOShopConfirmActivity : AppCompatActivity() {
 
     private inner class ClickBtGEOListinere : View.OnClickListener{
         override fun onClick(view: View?) {
-            // MainActivity に戻るための Intent を作成
-            val intent = Intent(this@GEOShopConfirmActivity, MainActivity::class.java)
-
-            // MainActivity 以外のすべてのアクティビティをスタックからクリアするフラグを設定
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-
-            startActivity(intent)
-            finish() // 現在の GEOShopConfirmActivity を終了（任意だが推奨）
+            finish()
         }
     }
 
@@ -59,7 +52,14 @@ class GEOShopConfirmActivity : AppCompatActivity() {
         var returnVal = true
         //選択されたメニューが「戻る」の場合、アクティビティを終了
         if (item.itemId == android.R.id.home) {
-            finish()
+            // MainActivity に戻るための Intent を作成
+            val intent = Intent(this@GEOShopConfirmActivity, MainActivity::class.java)
+
+            // MainActivity 以外のすべてのアクティビティをスタックからクリアするフラグを設定
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+
+            startActivity(intent)
+            finish() // 現在の GEOShopConfirmActivity を終了（任意だが推奨）
         } else {
             //親クラスの同名メソッドを呼び出し、その戻り値をreturnValとする
             returnVal = super.onOptionsItemSelected(item)
