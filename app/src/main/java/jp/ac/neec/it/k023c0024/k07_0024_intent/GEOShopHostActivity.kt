@@ -9,6 +9,9 @@ class GEOShopHostActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_geoshop_host)
 
+        // ActionBarにホームボタン（戻るボタン）を表示する
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         // Fragmentを動的に追加する処理
         val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fragmentContainer, GEOShopActivityFragment())

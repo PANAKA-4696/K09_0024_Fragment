@@ -13,6 +13,12 @@ import android.widget.SimpleAdapter
 import android.widget.TextView
 
 class GEOShopActivityFragment : Fragment() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // ここでFragmentがメニューを持つことを有効化する
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?   ,
