@@ -8,7 +8,7 @@
     <string name="shop1_name">GEOショップ</string>
     <string name="msg_ok">ご購入ありがとうございます。\n%1$s\n%d</string>
     <string name="msg_ng">所持金が足りません</string>
-    <string name="bt_sub_shop1">最初に戻る</string>
+    <string name="bt_sub_shop1">リストに戻る</string>
     <string name="shop2_name">ビックカメラショップ</string>
     <string name="bt_shop2">戻る</string>
     <string name="bt_sub_shop2">リストに戻る</string>
