@@ -80,13 +80,22 @@ class GEOShopActivityFragment : Fragment() {
             val price1 = GEOitem["price1"] as Int
             val game1 = GEOitem["game1"] as String
 
-            val intentGEOShopConfirmActivity = Intent(requireContext(), GEOShopConfirmActivity::class.java)
+            // 新しいFragmentのインスタンスを生成
+            val nextFragment = GEOShopConfirmActivityFragment()
 
-            intentGEOShopConfirmActivity.putExtra("money", money)
-            intentGEOShopConfirmActivity.putExtra("price1", price1)
-            intentGEOShopConfirmActivity.putExtra("game1", game1)
+            //Fragemntにデータを渡すためのBundleを生成
+            val bundle = Bundle()
+            bundle.putInt("money", money)
+            bundle.putInt("price1", price1)
+            bundle.putString("game1", game1)
+            nextFragment.arguments = bundle //BundleをFragmentに設定
 
-            startActivity(intentGEOShopConfirmActivity)
+            //Fragmentを置き換える処理
+            //requireActivity().supportFragmentManagerを使って、Fragmentを管理
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, nextFragment)//fragmentContainerはレイアウトのID
+                .addToBackStack(null) //戻るボタンで前のFragmentに戻れるようにする
+                .commit()
         }
     }
 
