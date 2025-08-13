@@ -53,15 +53,15 @@ class GEOShopConfirmActivityFragment : Fragment() {
 
     private inner class ClickBtGEOListinere : View.OnClickListener{
         override fun onClick(view: View?) {
-            requireActivity().finish()
+            //FragmentManagerのスタックから一つ戻る
+            requireActivity().supportFragmentManager.popBackStack()
         }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         //選択されたメニューが「戻る」の場合、アクティビティを終了
         if (item.itemId == android.R.id.home) {
-            //FragmentManagerのスタックから一つ戻る
-            requireActivity().supportFragmentManager.popBackStack()
+            requireActivity().finish()
             return true
         }
         //親クラスの同名メソッドを呼び出す
