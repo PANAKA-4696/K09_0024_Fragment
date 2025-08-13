@@ -88,14 +88,34 @@ class GEOShopActivityFragment : Fragment() {
             bundle.putInt("money", money)
             bundle.putInt("price1", price1)
             bundle.putString("game1", game1)
-            nextFragment.arguments = bundle //BundleをFragmentに設定
 
-            //Fragmentを置き換える処理
-            //requireActivity().supportFragmentManagerを使って、Fragmentを管理
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, nextFragment)//fragmentContainerはレイアウトのID
-                .addToBackStack(null) //戻るボタンで前のFragmentに戻れるようにする
-                .commit()
+            //自分が所属するアクティビティがnullじゃないなら
+            activity?.let{
+                val transaction = parentFragmentManager.beginTransaction()
+                transaction.setReorderingAllowed(true)
+                //自分が所属するアクティビティからGEOShopConfirmActivityFragmentContainerを取得
+                val GEOShopConfirmActivityFragmentContainer = it.findViewById<View>(R.id.GEOShopConfirmActivityfragmentContainer)
+                //GEOShopConfirmActivityFragmentContainerがnullじゃないなら
+                if(GEOShopConfirmActivityFragmentContainer != null){
+                    transaction.replace(GEOShopConfirmActivityFragmentContainer.id, nextFragment)
+                    transaction.addToBackStack(null)//戻るボタンで前のFragmentに戻れるようにする
+                }
+                //GEOShopConfirmActivityFragmentContainerがnullなら
+                else{
+                    transaction.replace(R.id.fragmentContainer, nextFragment)
+                    transaction.addToBackStack(null)//戻るボタンで前のFragmentに戻れるようにする
+                }
+                transaction.commit()
+            }
+
+//            nextFragment.arguments = bundle //BundleをFragmentに設定
+//
+//            //Fragmentを置き換える処理
+//            //requireActivity().supportFragmentManagerを使って、Fragmentを管理
+//            requireActivity().supportFragmentManager.beginTransaction()
+//                .replace(R.id.fragmentContainer, nextFragment)//fragmentContainerはレイアウトのID
+//                .addToBackStack(null) //戻るボタンで前のFragmentに戻れるようにする
+//                .commit()
         }
     }
 
