@@ -54,13 +54,13 @@ class GEOShopConfirmActivityFragment : Fragment() {
     private inner class ClickBtGEOListinere : View.OnClickListener{
         override fun onClick(view: View?) {
             //自分が所属するアクティビティがnullじゃないなら
-            activity?.let { 
+            activity?.let {
                 //自分が所属するアクティビティからGEOShopConfirmActivityfragmentContainerを取得
                 val GEOShopConfirmActivityfragmentContainer = it.findViewById<View>(R.id.GEOShopConfirmActivityfragmentContainer)
                 //GEOShopConfirmActivityfragmentContainerがnullじゃないなら
                 if (GEOShopConfirmActivityfragmentContainer != null) {
                     //フラグメントトランザクションの開始
-                    val transaction = requireActivity().supportFragmentManager.beginTransaction()
+                    val transaction = parentFragmentManager.beginTransaction()
                     //フラグメントトランザクションが正しく動作するように設定
                     transaction.setReorderingAllowed(true)
                     //自分自身を削除
@@ -74,7 +74,7 @@ class GEOShopConfirmActivityFragment : Fragment() {
                     requireActivity().supportFragmentManager.popBackStack()
                 }
             }
-            
+
 //            //FragmentManagerのスタックから一つ戻る
         }
     }
