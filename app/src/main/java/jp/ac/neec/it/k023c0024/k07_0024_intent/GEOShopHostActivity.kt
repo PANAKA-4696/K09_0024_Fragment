@@ -1,6 +1,7 @@
 package jp.ac.neec.it.k023c0024.k07_0024_intent
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 
@@ -14,7 +15,13 @@ class GEOShopHostActivity : AppCompatActivity() {
 
         // Fragmentを動的に追加する処理
         val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentContainer, GEOShopActivityFragment())
-        fragmentTransaction.commit()
+        val GEOShopActivityFragment = findViewById<View>(R.id.GEOActivityfragmentContainer)
+        if (GEOShopActivityFragment != null){
+            fragmentTransaction.replace(R.id.GEOActivityfragmentContainer, GEOShopActivityFragment())
+            fragmentTransaction.commit()
+        }else{
+            fragmentTransaction.replace(R.id.fragmentContainer, GEOShopActivityFragment())
+            fragmentTransaction.commit()
+        }
     }
 }
