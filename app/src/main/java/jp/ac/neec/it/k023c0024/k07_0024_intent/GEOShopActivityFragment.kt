@@ -11,6 +11,7 @@ import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.SimpleAdapter
 import android.widget.TextView
+import androidx.fragment.app.FragmentTransaction
 
 class GEOShopActivityFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -94,16 +95,17 @@ class GEOShopActivityFragment : Fragment() {
                 val transaction = parentFragmentManager.beginTransaction()
                 transaction.setReorderingAllowed(true)
                 //自分が所属するアクティビティからGEOShopConfirmActivityFragmentContainerを取得
-                val GEOShopConfirmActivityFragmentContainer = it.findViewById<View>(R.id.GEOShopConfirmActivityfragmentContainer)
-                //GEOShopConfirmActivityFragmentContainerがnullじゃないなら
-                if(GEOShopConfirmActivityFragmentContainer != null){
-                    transaction.replace(GEOShopConfirmActivityFragmentContainer.id, nextFragment)
+                val fragmentContainer = it.findViewById<View>(R.id.fragmentContainer)
+                //fragmentContainerがnullじゃないなら
+                if(fragmentContainer != null){
+                    transaction.replace(R.id.fragmentContainer, GEOShopConfirmActivityFragment::class.java, bundle)
                     transaction.addToBackStack(null)//戻るボタンで前のFragmentに戻れるようにする
                 }
-                //GEOShopConfirmActivityFragmentContainerがnullなら
+                //fragmentContainerがnullなら
                 else{
-                    transaction.replace(R.id.fragmentContainer, nextFragment)
-                    transaction.addToBackStack(null)//戻るボタンで前のFragmentに戻れるようにする
+                    val fragmentTransaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+                    fragmentTransaction.replace(R.id.GEOShopConfirmActivityfragmentContainer, GEOShopConfirmActivityFragment::class.java, bundle)
+                    fragmentTransaction.commit()
                 }
                 transaction.commit()
             }
